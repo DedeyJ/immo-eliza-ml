@@ -27,10 +27,6 @@ class Preprocessor(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, df, y=None):
-        # Replace "MISSING" values with None
-        # for col in df.columns:
-        #     df.loc[df[col] == "MISSING", col] = None
-
         # Extract postal zone from zip code
         df['postal_zone'] = df['zip_code'].astype(str).str[:2]
 
@@ -49,7 +45,7 @@ class Preprocessor(BaseEstimator, TransformerMixin):
 
 # Decide which columns to drop
 columns_to_drop = ["nbr_frontages", "id", "zip_code", "locality","latitude","longitude","fl_terrace","fl_garden","cadastral_income","fl_double_glazing","construction_year","equipped_kitchen", "province", "epc", "heating_type", "fl_open_fire"]
-rows_to_drop = ["terrace_sqm", "garden_sqm","primary_energy_consumption_sqm","total_area_sqm", "state_building"]
+rows_to_drop = ["terrace_sqm", "garden_sqm","primary_energy_consumption_sqm","total_area_sqm"]
 condition = "APARTMENT"
 
 # Define pipeline
@@ -60,7 +56,7 @@ pipeline = Pipeline([
 save_preprocess = pipeline.fit(df)
 
 # Save the pipeline to possibly reuse
-with open('preprocess.pkl', 'wb') as f:
+with open('.\model\preprocess.pkl', 'wb') as f:
     pickle.dump(save_preprocess, f)
 
 df = save_preprocess.transform(df)
@@ -104,10 +100,10 @@ final_pipeline = Pipeline([
 # Fit the pipeline (this will select the best model automatically)
 training = final_pipeline.fit(X_train, y_train)
 
-with open('model.pkl', 'wb') as f:
+with open('.\model\model.pkl', 'wb') as f:
     pickle.dump(training, f)
 
-with open('model.pkl', 'rb') as f:
+with open('.\model\model.pkl', 'rb') as f:
     input = pickle.load(f)
 
 print(input.score(X_test, y_test))

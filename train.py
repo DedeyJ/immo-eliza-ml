@@ -15,6 +15,8 @@ import pickle
 
 file_name = r".\data\properties.csv"
 df = pd.read_csv(file_name)
+df = df[df["price"] <= 1200000]
+
 
 # Making a pipeline class to put in scikit pipeline
 class Preprocessor(BaseEstimator, TransformerMixin):
@@ -89,7 +91,6 @@ preprocessor = ColumnTransformer([
     ('categorical', categorical_pipeline, categorical_columns)
 ])
 
-params =  {'n_estimators': [10, 50, 100], 'max_depth': [None, 10, 20]}  # Number of trees and depth
 model = RandomForestRegressor()
 # Create the final pipeline
 final_pipeline = Pipeline([
@@ -102,8 +103,3 @@ training = final_pipeline.fit(X_train, y_train)
 
 with open('.\model\model.pkl', 'wb') as f:
     pickle.dump(training, f)
-
-with open('.\model\model.pkl', 'rb') as f:
-    input = pickle.load(f)
-
-print(input.score(X_test, y_test))

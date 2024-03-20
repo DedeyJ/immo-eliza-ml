@@ -33,17 +33,17 @@ The models currently under evaluation are all available within the scikit-learn 
 The performance metrics utilized for evaluation are R2 (coefficient of determination) and MSE (mean squared error). Additionally, predictions have been made against both the test and train sets, and the actual values have been mapped against the predicted values for comparison.
 
 Linear Regression:
-
-    R2: 0.4637
 ![Linear Regression](images\linear_regression.png)
 
+Neural Network:
+![Neural Network Regression](images\neural_network.png)
 
 Random Forest Regression:
-
-    R2: 0.6843
 ![Random Forest Regression](images\random_forest_regression.png)
 
 ## Limitations
+
+The model is built upon a subset where prices are under €1.2M due to insufficient data points for higher prices, which would have otherwise skewed the model.
 
 Some limitations of the model include:
 

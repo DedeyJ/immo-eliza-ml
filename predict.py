@@ -17,8 +17,5 @@ with open('.\model\model.pkl', 'rb') as f:
 y_pred = model.predict(X)
 df_predicted = pd.DataFrame({'Predicted': y_pred})
 df = pd.concat([df_copy,df_predicted],axis=1)
-print(df)
 
 df.to_csv('prediction.csv', index=False)
-
-print(y_pred)

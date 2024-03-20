@@ -1,5 +1,5 @@
 # immo-eliza-ml
-
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 # Property Price Prediction Model
 
 ## Overview
@@ -26,11 +26,9 @@ We are currently at the third stage of the project. In the preceding steps, we c
 The performance metrics utilized for evaluation are R2 (coefficient of determination) and MSE (mean squared error). Additionally, predictions have been made against both the test and train sets, and the actual values have been mapped against the predicted values for comparison.
 
 **Linear Regression:**
-- R2: 0.4637
 - ![Linear Regression](images\linear_regression.png "RMSE and visuals")
 
 **Random Forest Regression:**
-- R2: 0.6843
 - ![Random Forest](images\random_forest_regression.png "RMSE and visuals")
 
 
@@ -61,3 +59,8 @@ The output will be a `prediction.csv` file in the main folder, containing the or
 
 Jens Dedeyne:
 - [LinkedIn](https://www.linkedin.com/in/jens-dedeyne/)
+
+
+## Timeline
+
+This project has been done within a span of five days.
